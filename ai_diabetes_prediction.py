@@ -1,5 +1,6 @@
 import pickle
 
+import h5py as h5py
 import pandas as pd
 import numpy as np
 from numpy import e
@@ -71,12 +72,12 @@ def btnOnclick(Pregnancies,Glucose,BloodPressure,SkinThickness,Insulin,DiabetesP
     print(confusion_matrix(y_test, y_pred))
     print(classification_report(y_test, y_pred))
 def saveModel(fileName, model):
-    # Save the model to a file
+    # Save the model to an HDF5 file
     try:
-        with open(fileName, 'wb') as file:
-            pickle.dump(model, file)
-        print("Model saved successfully.")
+        with h5py.File(fileName, 'w') as h5file:
+            for key, value in model.items():
+                h5file.create_dataset(key, data=value)
+        print("Model saved successfully as HDF5.")
     except Exception as e:
         print("Error while saving the model:", str(e))
-
-saveModel(r"E:\programming\python\pythonProject6\model.pkl", classifier)
+saveModel(r"E:\programming\python\pythonProject6\model.h5", classifier)
