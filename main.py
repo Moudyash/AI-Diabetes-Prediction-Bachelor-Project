@@ -10,7 +10,7 @@ class MainWindow(QWidget):
         super().__init__()
         self.setWindowTitle("PyQt5 App")
         self.setWindowIcon(QIcon("icon.png"))
-        self.setStyleSheet(open("styles.css").read())  # Load CSS styles from the file
+        self.setStyleSheet(open("assets/styles.css").read())  # Load CSS styles from the file
 
         layout = QVBoxLayout()
         self.setLayout(layout)
@@ -59,7 +59,7 @@ class MainWindow(QWidget):
         age = self.edit8.text()
         #outcome = btnOnclick(pregnancies, glucose, blood_pressure, skin_thickness, insulin, diabetes_pedigree, bmi, age)
        # QMessageBox.information(self, "Prediction Result", "The predicted outcome is: " + str(outcome))
-        loadModel(r"E:\programming\python\pythonProject6\model.pkl")
+        loadModel(r"/model/model.pkl")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)

@@ -9,7 +9,7 @@ class MainWindow(QWidget):
         super().__init__()
         self.setWindowTitle("PyQt5 App")
         self.setWindowIcon(QIcon("icon.png"))
-        self.setStyleSheet(open("E:\programming\python\pythonProject6\styles.css").read())  # Load CSS styles from the file
+        self.setStyleSheet(open("/assets/styles.css").read())  # Load CSS styles from the file
 
         layout = QVBoxLayout()
         self.setLayout(layout)
@@ -60,7 +60,7 @@ class MainWindow(QWidget):
         diabetes_pedigree = float(self.edit7.text())
         age = int(self.edit8.text())
 
-        model = loadModel(r"E:\programming\python\pythonProject6\model.pkl")
+        model = loadModel(r"/model/model.pkl")
         input_data = [[pregnancies, glucose, blood_pressure, skin_thickness, insulin, diabetes_pedigree, bmi, age]]
         prediction = model.predict(input_data)
 

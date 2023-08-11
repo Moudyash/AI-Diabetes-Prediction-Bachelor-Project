@@ -13,7 +13,7 @@ from sklearn.cluster import KMeans
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report, adjusted_rand_score, normalized_mutual_info_score
 
 # Load the dataset
-data = pd.read_csv(r"E:\programming\python\pythonProject6\dataset.csv")
+data = pd.read_csv(r"/data/dataset.csv")
 
 def checkZeroValue(df, x):
     if (df[x] == 0).any():
@@ -80,4 +80,4 @@ def saveModel(fileName, model):
         print("Model saved successfully as HDF5.")
     except Exception as e:
         print("Error while saving the model:", str(e))
-saveModel(r"E:\programming\python\pythonProject6\model.h5", classifier)
+saveModel(r"/model/model.h5", classifier)
